@@ -92,22 +92,31 @@ def winner(board)
   end
 end
 
+# def play(board)
+#   turn_count = 0
+#   while turn_count < 9
+#     turn(board)
+#     if over?(board)
+#       game_over = "yes"
+#       if won?(board)
+#         puts "Congratulations #{winner(board)}!"
+#       elsif draw?(board)
+#         puts "Cat's Game!"
+#       else full?(board)
+#         puts "full board..."
+#       end
+#       break
+#     end
+#     puts game_over
+#     turn_count+=1
+#   end
+# end
+
 def play(board)
-  turn_count = 0
-  while turn_count < 9
-    turn(board)
-    if over?(board)
-      game_over = "yes"
-      if won?(board)
-        puts "Congratulations #{winner(board)}!"
-      elsif draw?(board)
-        puts "Cat's Game!"
-      else full?(board)
-        puts "full board..."
-      end
-      break
-    end
-    puts game_over
-    turn_count+=1
+  turn(board) until over?(board)
+  if won?(board)
+    puts "Congratulations #{winner(board)}!"
+  elsif draw?(board)
+    puts "Cat's Game!"
   end
 end
